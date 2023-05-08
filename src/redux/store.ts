@@ -4,9 +4,10 @@ import {
   useDispatch as useAppDispatch,
   useSelector as useAppSelector,
 } from 'react-redux';
+import { authReducer } from './auth.slice';
 
 export const store = configureStore({
-  reducer: {},
+  reducer: { auth: authReducer },
 });
 
 export type RootState = ReturnType<typeof store.getState>;
