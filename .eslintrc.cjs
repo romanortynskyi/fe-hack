@@ -24,13 +24,8 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
+    'react/function-component-definition': 0,
     'react/react-in-jsx-scope': 0,
-    "import/no-extraneous-dependencies" : ["error", {"devDependencies": true}]
+    '@typescript-eslint/semi': 0,
   },
-  'import/no-extraneous-dependencies': [
-    'error',
-    {
-      projectDependencies: false,
-    },
-  ],
 };
