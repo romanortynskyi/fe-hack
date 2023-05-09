@@ -24,6 +24,8 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
+    'react/function-component-definition': 0,
     'react/react-in-jsx-scope': 0,
+    '@typescript-eslint/semi': 0,
   },
 };
