@@ -128,7 +128,7 @@ const SignUpFormFirstStep = () => {
         <TextField
           name='email'
           label='Email'
-          error={formik.touched.email && !!formik.errors.email}
+          error={formik.touched && !!formik.errors.email}
           helperText={formik.touched.email && formik.errors.email?.toString()}
           onChange={formik.handleChange}
           value={formik.values.email}

@@ -22,6 +22,13 @@ export const authApi = createApi({
         body,
       }),
     }),
+    login: builder.mutation({
+      query: (body) => ({
+        url: 'login',
+        method: 'POST',
+        body,
+      }),
+    }),
     sendRecoveryCode: builder.mutation({
       query: (body) => ({
         url: 'forgot-password',
@@ -43,23 +50,13 @@ export const authApi = createApi({
         body,
       })
     }),
-
-    getMe: builder.query({
-      query: (token) => ({
-        url: 'me',
-        headers: {
-          'Authorization': `Bearer ${token}`,
-        },
-      })
-    }),
   }),
 })
 
 export const {
   useSignUpMutation,
+  useLoginMutation,
   useSendRecoveryCodeMutation,
   useVerifyRecoveryCodeMutation,
   useResetPasswordMutation,
-
-  useGetMeQuery,
 } = authApi
