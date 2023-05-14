@@ -43,6 +43,15 @@ export const authApi = createApi({
         body,
       })
     }),
+
+    getMe: builder.query({
+      query: (token) => ({
+        url: 'me',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      })
+    }),
   }),
 })
 
@@ -51,4 +60,6 @@ export const {
   useSendRecoveryCodeMutation,
   useVerifyRecoveryCodeMutation,
   useResetPasswordMutation,
+
+  useGetMeQuery,
 } = authApi

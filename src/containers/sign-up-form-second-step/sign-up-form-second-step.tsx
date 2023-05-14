@@ -5,13 +5,14 @@ import {
   TextField,
   Button,
 } from '@mui/material'
+import LoadingButton from '@mui/lab/LoadingButton'
 import { useDispatch } from 'react-redux'
 
 import SignUpFormContext from '~/contexts/sign-up-form-context'
 import { initialValues as secondStepInitialValues } from './initial-values'
 import LocalStorageKeys from '~/types/enums/local-storage-keys'
 import SignUpFormState from '~/types/interfaces/sign-up-form-state'
-import { authApi, useSignUpMutation } from '~/redux/auth.api'
+import { useSignUpMutation } from '~/redux/auth.api'
 import { validationSchema } from './validation-schema'
 import { authActions } from '~/redux/auth.slice'
 
@@ -126,7 +127,7 @@ const SignUpFormSecondStep = () => {
           Назад
         </Button>
    
-        <Button
+        <LoadingButton
           onClick={() => {
             formik.submitForm()
             formik.setSubmitting(false)
@@ -134,9 +135,10 @@ const SignUpFormSecondStep = () => {
           color='primary'
           variant='contained'
           sx={{ marginBottom: 2, width: 1 }}
+          loading={isSignUpLoading}
         >
           Зареєструватись
-        </Button>
+        </LoadingButton>
         <Button
           onClick={onLogin}
           color='primary'
