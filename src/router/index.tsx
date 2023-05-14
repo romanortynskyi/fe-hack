@@ -4,14 +4,14 @@ import {
   createRoutesFromElements,
 } from 'react-router-dom'
 
-import App from '../App'
-import routes from './routes.data'
+import Routes from '~/types/enums/routes'
+import SignUp from '~/pages/sign-up'
 
 const config = (
   <Route
-    element={<App />}
+    element={<SignUp />}
     errorElement={<h1>404 - Not found.</h1>}
-    path={routes.main}
+    path={Routes.SignUp}
   />
 )
 
