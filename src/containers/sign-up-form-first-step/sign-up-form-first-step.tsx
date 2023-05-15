@@ -4,6 +4,7 @@ import Box from '@mui/material/Box'
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
 import LoadingButton from '@mui/lab/LoadingButton'
+import { Link } from 'react-router-dom'
 
 import ImageInput from '~/components/image-input'
 import SignUpFormContext from '~/contexts/sign-up-form-context'
@@ -14,6 +15,7 @@ import { userApi } from '~/redux/user.api'
 import { initialValues as signUpFirstStepInitialValues } from './initial-values'
 import { FetchBaseQueryError } from '@reduxjs/toolkit/dist/query'
 import AppError from '~/types/interfaces/app-error'
+import Routes from '~/types/enums/routes'
 
 interface SignUpFormFirstStepValues {
   firstName: string
@@ -145,14 +147,14 @@ const SignUpFormFirstStep = () => {
           Далі
         </LoadingButton>
         <Button
-          // onClick={onLogin}
-          color='primary'
+          component={Link}
           variant='contained'
           sx={{ marginBottom: 2, width: 1 }}
+          to={Routes.Login}
         >
           Увійти
         </Button>
-      </Box>   
+      </Box>
     </form>
   )
 }
