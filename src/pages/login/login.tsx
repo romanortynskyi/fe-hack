@@ -14,8 +14,8 @@ const Login = () => {
     if (user) {
       navigate(Routes.Main, { replace: true })
     }
-  }, [user])
-    
+  }, [user, navigate])
+
   return (
     <Container sx={{ mt: 6 }}>
       <LoginForm />

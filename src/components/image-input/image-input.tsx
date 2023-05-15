@@ -1,16 +1,16 @@
 import React from 'react'
-import { 
-    Create as CreateIcon,
-    Delete as DeleteIcon, 
-    Add as AddIcon,
+import {
+  Create as CreateIcon,
+  Delete as DeleteIcon,
+  Add as AddIcon,
 } from '@mui/icons-material'
 import {
-    Box,
-    IconButton,
-    CardMedia,
-    CircularProgress,
+  Box,
+  IconButton,
+  CardMedia,
 } from '@mui/material'
 
+import Progress from '~/components/progress'
 import styles from './styles'
 
 interface ImageInputProps {
@@ -46,7 +46,7 @@ const ImageInput = (props: ImageInputProps) => {
     />
   ) : null
 
-  const imagePreviewJSX = isLoading ? <CircularProgress /> : imageJSX
+  const imagePreviewJSX = isLoading ? <Progress /> : imageJSX
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange(e)
@@ -55,8 +55,8 @@ const ImageInput = (props: ImageInputProps) => {
   return (
     <Box sx={styles.avatarUpload}>
       {deleteButtonJSX}
-            
-      <Box sx={styles.avatarEdit}>      
+
+      <Box sx={styles.avatarEdit}>
         <IconButton
           sx={styles.label}
           component='label'

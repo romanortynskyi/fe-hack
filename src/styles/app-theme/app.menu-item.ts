@@ -9,7 +9,7 @@ const menuItem = {
         backgroundColor: palette.primary[50],
       },
     },
-  }
+  },
 }
 
 export default menuItem

@@ -11,7 +11,7 @@ import textField from './app.text-field'
 import menuItem from './app.menu-item'
 import menuList from './app.menu-list'
 
-export const theme = createTheme({
+const theme = createTheme({
   palette,
   typography,
   components: {
@@ -22,6 +22,8 @@ export const theme = createTheme({
     MuiTooltip: tooltip,
     MuiMenuItem: menuItem,
     MuiMenu: menuList,
-    MuiTableRow: table
-  }
+    MuiTableRow: table,
+  },
 })
+
+export default theme

@@ -1,1 +1,1 @@
-export * from './progress'
+export { default } from './progress'

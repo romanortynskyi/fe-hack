@@ -9,12 +9,12 @@ import LoadingButton from '@mui/lab/LoadingButton'
 import { useDispatch } from 'react-redux'
 
 import SignUpFormContext from '~/contexts/sign-up-form-context'
-import { initialValues as secondStepInitialValues } from './initial-values'
 import LocalStorageKeys from '~/types/enums/local-storage-keys'
 import SignUpFormState from '~/types/interfaces/sign-up-form-state'
 import { useSignUpMutation } from '~/redux/auth.api'
-import { validationSchema } from './validation-schema'
 import { authActions } from '~/redux/auth.slice'
+import secondStepInitialValues from './initial-values'
+import validationSchema from './validation-schema'
 
 interface SignUpFormSecondStepValues {
   password: string
@@ -36,10 +36,10 @@ const SignUpFormSecondStep = () => {
     password,
     confirmPassword,
   }
-  
-  const initialValues = necessaryValues !== secondStepInitialValues ? 
-      necessaryValues : 
-      secondStepInitialValues
+
+  const initialValues = necessaryValues !== secondStepInitialValues
+    ? necessaryValues
+    : secondStepInitialValues
 
   const handleSubmit = async (values: SignUpFormSecondStepValues) => {
     const {
@@ -60,21 +60,21 @@ const SignUpFormSecondStep = () => {
     }
 
     formData.append('password', values.password)
-    
+
     try {
       const signUpData = await signUp(formData).unwrap()
 
       localStorage.setItem(LocalStorageKeys.Token, signUpData.token)
-  
+
       dispatch(authActions.setUser(signUpData))
     }
-    
-    catch(error) {
+
+    catch (error) {
       console.error(error)
     }
   }
 
-  const onGoBack = (values: any) => {
+  const onGoBack = (values: SignUpFormSecondStepValues) => {
     setData((prevData: SignUpFormState) => ({
       ...prevData,
       step: prevData.step - 1,
@@ -92,7 +92,7 @@ const SignUpFormSecondStep = () => {
     onSubmit: handleSubmit,
   })
 
-    return (
+  return (
     <form onSubmit={formik.handleSubmit}>
       <Box sx={{ width: '300px', margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <TextField
@@ -126,7 +126,7 @@ const SignUpFormSecondStep = () => {
         >
           Назад
         </Button>
-   
+
         <LoadingButton
           onClick={() => {
             formik.submitForm()

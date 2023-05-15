@@ -18,7 +18,7 @@ export const userApi = createApi({
     checkIfUserExistsByEmail: builder.query({
       query: (email: string) => ({
         url: `exists-by-email?email=${email}`,
-      })
+      }),
     }),
   }),
 })

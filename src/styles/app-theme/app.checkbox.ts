@@ -12,7 +12,7 @@ const checkbox = {
         color: palette.primary[700],
       },
     },
-  }
+  },
 }
 
 export default checkbox
