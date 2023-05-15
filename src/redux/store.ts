@@ -11,11 +11,10 @@ import { userApi } from './user.api'
 
 export const store = configureStore({
   reducer: rootReducer,
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat([
-      authApi.middleware,
-      userApi.middleware,
-    ]),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat([
+    authApi.middleware,
+    userApi.middleware,
+  ]),
 })
 
 export type RootState = ReturnType<typeof store.getState>

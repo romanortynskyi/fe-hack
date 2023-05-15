@@ -34,21 +34,21 @@ export const authApi = createApi({
         url: 'forgot-password',
         method: 'POST',
         body,
-      })
+      }),
     }),
     verifyRecoveryCode: builder.mutation({
       query: (body) => ({
         url: 'verify-recovery-code',
         method: 'POST',
         body,
-      })
+      }),
     }),
     resetPassword: builder.mutation({
       query: (body) => ({
         url: 'reset-password',
         method: 'PATCH',
         body,
-      })
+      }),
     }),
   }),
 })

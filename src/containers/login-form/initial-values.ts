@@ -1,4 +1,6 @@
-export const initialValues = {
+const initialValues = {
   email: '',
   password: '',
 }
+
+export default initialValues

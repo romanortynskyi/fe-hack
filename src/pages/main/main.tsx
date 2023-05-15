@@ -12,10 +12,13 @@ const Main = () => {
     if (!user && !isFetchingGetMe) {
       navigate(Routes.Login, { replace: true })
     }
-  }, [user, navigate])
+  }, [user, isFetchingGetMe, navigate])
 
   return (
-    <div>hello, {user?.firstName}</div>
+    <div>
+      hello,
+      {user?.firstName}
+    </div>
   )
 }
 

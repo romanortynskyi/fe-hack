@@ -6,13 +6,13 @@ const table = {
   styleOverrides: {
     root: {
       '&.MuiTableRow-hover:hover': {
-        backgroundColor: palette.basic.grey
+        backgroundColor: palette.basic.grey,
       },
       '& .MuiTableCell-root': {
-        borderBottom: 'none'
-      }
-    }
-  }
+        borderBottom: 'none',
+      },
+    },
+  },
 }
 
 export default table

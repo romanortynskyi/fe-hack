@@ -1,32 +1,33 @@
 export const scrollbar = {
   '&::-webkit-scrollbar-track': {
-    visibility: 'hidden'
+    visibility: 'hidden',
   },
   '&::-webkit-scrollbar-thumb': {
-    visibility: 'hidden'
+    visibility: 'hidden',
   },
   '&:hover': {
     '&::-webkit-scrollbar-track': {
-      visibility: 'visible'
+      visibility: 'visible',
     },
     '&::-webkit-scrollbar-thumb': {
-      visibility: 'visible'
-    }
-  }
+      visibility: 'visible',
+    },
+  },
 }
+
 export const textfieldScrollbar = {
   '& ::-webkit-scrollbar-track': {
-    visibility: 'hidden'
+    visibility: 'hidden',
   },
   '& ::-webkit-scrollbar-thumb': {
-    visibility: 'hidden'
+    visibility: 'hidden',
   },
   '& :hover': {
     '&::-webkit-scrollbar-track': {
-      visibility: 'visible'
+      visibility: 'visible',
     },
     '&::-webkit-scrollbar-thumb': {
-      visibility: 'visible'
-    }
-  }
+      visibility: 'visible',
+    },
+  },
 }

@@ -7,13 +7,18 @@ import Box from '@mui/material/Box'
 
 import { useDispatch, useSelector } from '~/redux/store'
 import Routes from '~/types/enums/routes'
-import { Progress } from '~/components/progress'
+import Progress from '~/components/progress'
 import { authActions } from '~/redux/auth.slice'
 import LocalStorageKeys from '~/types/enums/local-storage-keys'
 import { useLoginMutation } from '~/redux/auth.api'
-import { validationSchema } from './validation-schema'
-import { initialValues } from './initial-values'
 import AppError from '~/types/interfaces/app-error'
+import validationSchema from './validation-schema'
+import initialValues from './initial-values'
+
+interface LoginValues {
+  email: string
+  password: string
+}
 
 const LoginForm = () => {
   const dispatch = useDispatch()
@@ -21,7 +26,7 @@ const LoginForm = () => {
 
   const [login, { isLoading: isLoginLoading }] = useLoginMutation()
 
-  const onSubmit = async (values: any) => {
+  const onSubmit = async (values: LoginValues) => {
     try {
       const user = await login(values).unwrap()
 
@@ -31,8 +36,8 @@ const LoginForm = () => {
       }
     }
 
-    catch(error) {
-      dispatch(authActions.setError((error as AppError).data.message))
+    catch (err) {
+      dispatch(authActions.setError((err as AppError).data.message))
     }
   }
 
@@ -53,7 +58,7 @@ const LoginForm = () => {
   }
 
   return (
-    <Box sx={{ width: '300px', margin: '0 auto'}}>
+    <Box sx={{ width: '300px', margin: '0 auto' }}>
       <Typography variant='h6' sx={{ textAlign: 'center' }}>
         Вхід
       </Typography>
@@ -90,9 +95,9 @@ const LoginForm = () => {
             variant='contained'
             sx={{ marginBottom: 2, width: 1 }}
             disabled={isLoginLoading || Boolean(error)}
-            >
-              Увійти
-              {isLoginLoading && <Progress />}
+          >
+            Увійти
+            {isLoginLoading && <Progress />}
           </Button>
 
           <Button

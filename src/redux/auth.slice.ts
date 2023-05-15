@@ -20,15 +20,15 @@ const getMe = createAsyncThunk(
       const url = `${import.meta.env.VITE_API_URL}/auth/me`
       const response = await fetch(url, {
         headers: {
-          Authorization: `Bearer ${token}`, 
+          Authorization: `Bearer ${token}`,
         },
       })
       const user = await response.json()
-          
+
       return user as UserEntity
     }
 
-    return null    
+    return null 
   },
 )
 

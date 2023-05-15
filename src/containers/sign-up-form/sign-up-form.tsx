@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 
 import SignUpFormFirstStep from '~/containers/sign-up-form-first-step'
 import SignUpFormSecondStep from '~/containers/sign-up-form-second-step'
@@ -17,15 +17,17 @@ const SignUpForm = () => {
   })
 
   const steps = [
-    <SignUpFormFirstStep />, 
+    <SignUpFormFirstStep />,
     <SignUpFormSecondStep />,
   ]
 
+  const contextValue = useMemo(() => ({
+    data,
+    setData,
+  }), [data, setData])
+
   return (
-    <SignUpFormContext.Provider value={{
-      data,
-      setData,
-    }}>
+    <SignUpFormContext.Provider value={contextValue}>
       {steps[data.step]}
     </SignUpFormContext.Provider>
   )

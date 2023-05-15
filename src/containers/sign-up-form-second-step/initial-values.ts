@@ -1,4 +1,6 @@
-export const initialValues = {
+const initialValues = {
   password: '',
   confirmPassword: '',
 }
+
+export default initialValues
