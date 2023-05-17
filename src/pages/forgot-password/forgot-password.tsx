@@ -1,12 +1,12 @@
 import { FC, useEffect } from 'react'
-import Box from '@mui/material/Box'
 import { useNavigate } from 'react-router-dom'
+import { Container } from '@mui/material'
 
-import SignUpForm from '~/containers/sign-up-form'
-import { useSelector } from '~/redux/store'
 import Routes from '~/types/enums/routes'
+import ForgotPasswordForm from '~/containers/forgot-password-form'
+import { useSelector } from '~/redux/store'
 
-const SignUp: FC = () => {
+const ForgotPassword: FC = () => {
   const navigate = useNavigate()
   const { user } = useSelector((state) => state.auth)
 
@@ -17,10 +17,10 @@ const SignUp: FC = () => {
   }, [user, navigate])
 
   return (
-    <Box>
-      <SignUpForm />
-    </Box>
+    <Container sx={{ mt: 6 }}>
+      <ForgotPasswordForm />
+    </Container>
   )
 }
 
-export default SignUp
+export default ForgotPassword
