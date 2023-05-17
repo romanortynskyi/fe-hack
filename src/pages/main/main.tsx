@@ -1,10 +1,10 @@
-import { useEffect } from 'react'
+import { FC, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { useSelector } from '~/redux/store'
 import Routes from '~/types/enums/routes'
 
-const Main = () => {
+const Main: FC = () => {
   const navigate = useNavigate()
   const { user, isFetchingGetMe } = useSelector((state) => state.auth)
 

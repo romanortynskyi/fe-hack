@@ -9,6 +9,7 @@ import SignUp from '~/pages/sign-up'
 import Main from '~/pages/main'
 import App from '~/containers/app'
 import Login from '~/pages/login'
+import ForgotPassword from '~/pages/forgot-password'
 
 const config = (
   <Route
@@ -30,6 +31,11 @@ const config = (
       element={<Login />}
       errorElement={<h1>404 - Not found.</h1>}
       path={Routes.Login}
+    />
+    <Route
+      element={<ForgotPassword />}
+      errorElement={<h1>404 - Not found.</h1>}
+      path={Routes.ForgotPassword}
     />
   </Route>
 )

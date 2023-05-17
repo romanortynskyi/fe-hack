@@ -29,7 +29,7 @@ export const authApi = createApi({
         body,
       }),
     }),
-    sendRecoveryCode: builder.mutation({
+    sendResetPasswordEmail: builder.mutation({
       query: (body) => ({
         url: 'forgot-password',
         method: 'POST',
@@ -56,7 +56,7 @@ export const authApi = createApi({
 export const {
   useSignUpMutation,
   useLoginMutation,
-  useSendRecoveryCodeMutation,
+  useSendResetPasswordEmailMutation,
   useVerifyRecoveryCodeMutation,
   useResetPasswordMutation,
 } = authApi
