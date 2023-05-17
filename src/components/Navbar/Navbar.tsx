@@ -59,7 +59,7 @@ function Navbar() {
                 flex: '1',
               }}
             >
-              GGW
+              GGW.
             </Typography>
           </Button>
 
