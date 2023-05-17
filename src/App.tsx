@@ -1,11 +1,3 @@
-import Navbar from './components/Navbar/Navbar.tsx';
-import HeaderTabs from './components/HeaderTabs/HeaderTabs.tsx';
-
-const App = () => (
-  <>
-    <Navbar />
-    <HeaderTabs />
-  </>
-)
+const App = () => <h1>Hello World</h1>
 
 export default App
