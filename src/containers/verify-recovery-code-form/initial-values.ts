@@ -1,3 +1,5 @@
-export const initialValues = {
+const initialValues = {
   recoveryCode: '',
 }
+
+export default initialValues

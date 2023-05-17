@@ -11,10 +11,10 @@ import LoadingButton from '@mui/lab/LoadingButton'
 import { authActions } from '~/redux/auth.slice'
 import { useDispatch, useSelector } from '~/redux/store'
 import { authApi } from '~/redux/auth.api'
-import { validationSchema } from './validation-schema'
-import { initialValues } from './initial-values'
 import AppError from '~/types/interfaces/app-error'
 import Routes from '~/types/enums/routes'
+import validationSchema from './validation-schema'
+import initialValues from './initial-values'
 
 interface VerifyRecoveryCodeFormValues {
   recoveryCode: string
@@ -32,11 +32,14 @@ const VerifyRecoveryCodeForm: FC = () => {
 
   const onSubmit = async (values: VerifyRecoveryCodeFormValues) => {
     try {
+      const { recoveryCode } = values
+
       await verifyRecoveryCode({
-        recoveryCode: values.recoveryCode,
+        recoveryCode,
         email,
       }).unwrap()
 
+      dispatch(authActions.setRecoveryCode(recoveryCode))
       navigate(Routes.ResetPassword)
     }
     

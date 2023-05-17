@@ -1,4 +1,4 @@
-import { ChangeEventHandler, FC, KeyboardEventHandler } from 'react'
+import { FC } from 'react'
 import { useFormik } from 'formik'
 import {
   Typography,
@@ -6,13 +6,15 @@ import {
   Box,
 } from '@mui/material'
 import LoadingButton from '@mui/lab/LoadingButton'
+import { useNavigate } from 'react-router-dom'
 
 import { useSelector, useDispatch } from '~/redux/store'
 import { useResetPasswordMutation } from '~/redux/auth.api'
 import { authActions } from '~/redux/auth.slice'
 import AppError from '~/types/interfaces/app-error'
-import { validationSchema } from './validation-schema'
-import { initialValues } from './initial-values'
+import Routes from '~/types/enums/routes'
+import validationSchema from './validation-schema'
+import initialValues from './initial-values'
 
 interface ResetPasswordFormValues {
   password: string
@@ -22,6 +24,7 @@ interface ResetPasswordFormValues {
 const ResetPasswordForm: FC = () => {
   const dispatch = useDispatch()
   const { error, email, recoveryCode } = useSelector((state) => state.auth)
+  const navigate = useNavigate()
 
   const [resetPassword, { isLoading: isLoadingResetPassword }] = useResetPasswordMutation()
 
@@ -32,6 +35,8 @@ const ResetPasswordForm: FC = () => {
         recoveryCode,
         password: values.password,
       }).unwrap()
+
+      navigate(Routes.Main, { replace: true })
     }
 
     catch(err) {
