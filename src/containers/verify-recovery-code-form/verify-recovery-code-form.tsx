@@ -5,6 +5,7 @@ import {
   TextField,
   Box,
 } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 import LoadingButton from '@mui/lab/LoadingButton'
 
 import { authActions } from '~/redux/auth.slice'
@@ -13,6 +14,7 @@ import { authApi } from '~/redux/auth.api'
 import { validationSchema } from './validation-schema'
 import { initialValues } from './initial-values'
 import AppError from '~/types/interfaces/app-error'
+import Routes from '~/types/enums/routes'
 
 interface VerifyRecoveryCodeFormValues {
   recoveryCode: string
@@ -21,6 +23,7 @@ interface VerifyRecoveryCodeFormValues {
 const VerifyRecoveryCodeForm: FC = () => {
   const dispatch = useDispatch()
   const { error, email } = useSelector((state) => state.auth)
+  const navigate = useNavigate()
 
   const [
     verifyRecoveryCode,
@@ -33,6 +36,8 @@ const VerifyRecoveryCodeForm: FC = () => {
         recoveryCode: values.recoveryCode,
         email,
       }).unwrap()
+
+      navigate(Routes.ResetPassword)
     }
     
     catch (err) {console.log(err)
