@@ -11,15 +11,18 @@ import Tooltip from '@mui/material/Tooltip'
 import MenuItem from '@mui/material/MenuItem'
 import AdbIcon from '@mui/icons-material/Adb'
 import Button from '@mui/material/Button'
-import Routes from '~/types/enums/routes'
 import { Link } from 'react-router-dom'
 
+import Routes from '~/types/enums/routes'
+import UserEntity from '~/types/interfaces/user-entity'
+
 interface NavbarProps {
+  user: UserEntity | null
   onLogout: (callback: () => void) => void
 }
 
 const Navbar: FC<NavbarProps> = (props) => {
-  const { onLogout } = props
+  const { onLogout, user } = props
 
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null)
 
@@ -30,17 +33,6 @@ const Navbar: FC<NavbarProps> = (props) => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null)
   }
-
-  const settings = [
-    {
-      label: 'Profile',
-      onClick: () => {},
-    },
-    {
-      label: 'Logout',
-      onClick: onLogout,
-    }
-  ]
 
   return (
     <AppBar position='static' style={{ background: '#1c1c1c' }}>
@@ -83,46 +75,58 @@ const Navbar: FC<NavbarProps> = (props) => {
             marginLeft: 'auto',
           }}
           >
-            <Tooltip title='Open settings'>
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt='Remy Sharp' src='/static/images/avatar/2.jpg' />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id='menu-appbar'
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-              PaperProps={{
-                sx: {
-                  minWidth: 200,
-                },
-              }}
-              MenuListProps={{
-                sx: {
-                  '& .MuiMenuItem-root': {
-                    fontSize: '18px',
-                    minHeight: '48px',
-                  },
-                },
-              }}
-            >
-              {settings.map((setting, i) => (
-                <MenuItem key={i} onClick={() => setting.onClick(handleCloseUserMenu)}>
-                  <Typography textAlign='center'>{setting.label}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
+            {user ? (
+              <>
+                <Tooltip title='Open settings'>
+                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                    <Avatar
+                      alt={`${user?.firstName} ${user?.lastName}`}
+                      src={user?.imgSrc}
+                    >
+                      {!user?.imgSrc && user?.firstName[0]}
+                    </Avatar>
+                  </IconButton>
+                </Tooltip>
+                <Menu
+                  sx={{ mt: '45px' }}
+                  id='menu-appbar'
+                  anchorEl={anchorElUser}
+                  anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  open={Boolean(anchorElUser)}
+                  onClose={handleCloseUserMenu}
+                  PaperProps={{
+                    sx: {
+                      minWidth: 200,
+                    },
+                  }}
+                  MenuListProps={{
+                    sx: {
+                      '& .MuiMenuItem-root': {
+                        fontSize: '18px',
+                        minHeight: '48px',
+                      },
+                    },
+                  }}
+                > 
+                  <Link to={Routes.Profile} style={{ textDecoration: 'none' }}>
+                    <MenuItem>
+                      <Typography textAlign='center'>Profile</Typography>
+                    </MenuItem>
+                  </Link>
+                  <MenuItem onClick={() => onLogout(handleCloseUserMenu)}>
+                    <Typography textAlign='center'>Logout</Typography>
+                  </MenuItem>
+                </Menu>
+              </>
+            ) : null}
           </Box>
         </Toolbar>
       </Container>

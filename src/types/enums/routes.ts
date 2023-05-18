@@ -5,6 +5,7 @@ enum Routes {
   ForgotPassword = '/forgot-password',
   VerifyRecoveryCode = '/verify-recovery-code',
   ResetPassword = '/reset-password',
+  Profile = '/profile',
 }
 
 export default Routes

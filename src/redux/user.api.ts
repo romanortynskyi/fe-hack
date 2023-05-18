@@ -15,6 +15,20 @@ export const userApi = createApi({
     baseUrl: `${API_URL}/users/`,
   }) as BaseQueryFn<string | FetchArgs, unknown, AppError, {}>,
   endpoints: (builder) => ({
+    updateUser: builder.mutation({
+      query: ({ id, body }) => ({
+        url: `${id}`,
+        method: 'PATCH',
+        body,
+      }),
+    }),
+    deleteUser: builder.mutation({
+      query: (id) => ({
+        url: `${id}`,
+        method: 'DELETE',
+      }),
+    }),
+
     checkIfUserExistsByEmail: builder.query({
       query: (email: string) => ({
         url: `exists-by-email?email=${email}`,
@@ -24,5 +38,8 @@ export const userApi = createApi({
 })
 
 export const {
+  useUpdateUserMutation,
+  useDeleteUserMutation,
+
   useCheckIfUserExistsByEmailQuery,
 } = userApi
