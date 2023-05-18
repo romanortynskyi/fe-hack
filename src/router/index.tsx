@@ -12,6 +12,7 @@ import Login from '~/pages/login'
 import ForgotPassword from '~/pages/forgot-password'
 import VerifyRecoveryCode from '~/pages/verify-recovery-code'
 import ResetPassword from '~/pages/reset-password'
+import Profile from '~/pages/profile'
 
 const config = (
   <Route
@@ -48,6 +49,11 @@ const config = (
       element={<ResetPassword />}
       errorElement={<h1>404 - Not found.</h1>}
       path={Routes.ResetPassword}
+    />
+    <Route
+      element={<Profile />}
+      errorElement={<h1>404 - Not found.</h1>}
+      path={Routes.Profile}
     />
   </Route>
 )

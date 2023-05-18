@@ -5,6 +5,7 @@ interface UserEntity extends BaseEntity {
   lastName: string
   email: string
   token?: string
+  imgSrc?: string
 }
 
 export default UserEntity
