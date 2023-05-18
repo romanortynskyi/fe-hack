@@ -133,4 +133,5 @@ const Navbar: FC<NavbarProps> = (props) => {
     </AppBar>
   )
 }
+
 export default Navbar
