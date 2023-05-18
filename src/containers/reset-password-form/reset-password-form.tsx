@@ -39,7 +39,7 @@ const ResetPasswordForm: FC = () => {
       navigate(Routes.Main, { replace: true })
     }
 
-    catch(err) {
+    catch (err) {
       dispatch(authActions.setError((err as AppError).data.message))
     }
   }
@@ -51,7 +51,7 @@ const ResetPasswordForm: FC = () => {
   })
 
   return (
-    <Box sx={{ width: '300px', margin: '0 auto'}}>
+    <Box sx={{ width: '300px', margin: '0 auto' }}>
       <Typography variant='h6' sx={{ textAlign: 'center' }}>
         Зміна пароля
       </Typography>

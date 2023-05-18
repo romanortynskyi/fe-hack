@@ -11,11 +11,11 @@ const VerifyRecoveryCode = () => {
   const { user, email } = useSelector((state) => state.auth)
 
   useEffect(() => {
-    if (user || !email) {    
+    if (user || !email) {
       navigate(Routes.Main, { replace: true })
     }
   }, [user, navigate])
-    
+
   return (
     <Container sx={{ mt: 6 }}>
       <VerifyRecoveryCodeForm />

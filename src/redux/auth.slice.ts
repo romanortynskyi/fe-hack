@@ -3,12 +3,12 @@ import { SliceCaseReducers, createAsyncThunk, createSlice } from '@reduxjs/toolk
 import UserEntity from '~/types/interfaces/user-entity'
 
 interface AuthState {
-	user: UserEntity | null
+  user: UserEntity | null
   email: string | null
   recoveryCode: number | null
   isFetchingGetMe: boolean
   isFetching: boolean
-	error?: string | null
+  error?: string | null
 }
 
 const getMe = createAsyncThunk(
@@ -28,7 +28,7 @@ const getMe = createAsyncThunk(
       return user as UserEntity
     }
 
-    return null 
+    return null
   },
 )
 
@@ -40,7 +40,7 @@ export const authSlice = createSlice<AuthState, SliceCaseReducers<AuthState>, st
     recoveryCode: null,
     isFetchingGetMe: true,
     isFetching: false,
-		error: null,
+    error: null,
   },
   reducers: {
     setUser: (state, { payload }) => {

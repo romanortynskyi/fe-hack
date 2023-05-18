@@ -2,7 +2,7 @@ import * as React from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+import { Box } from '@mui/material';
 import Container from '@mui/material/Container';
 
 interface TabPanelProps {
@@ -21,7 +21,7 @@ function TabPanel(props: TabPanelProps) {
 
   return (
     <div
-      role="tabpanel"
+      role='tabpanel'
       hidden={value !== index}
       id={`simple-tabpanel-${index}`}
       aria-labelledby={`simple-tab-${index}`}
@@ -51,18 +51,18 @@ export default function BasicTabs() {
   };
 
   return (
-    <Container maxWidth="xl">
+    <Container maxWidth='xl'>
       <Box sx={{}}>
         <Box sx={{
           borderBottom: 1,
           borderColor: 'divider',
         }}
         >
-          <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-            <Tab label="Income" {...a11yProps(0)} />
-            <Tab label="Credit" {...a11yProps(1)} />
-            <Tab label="Costs" {...a11yProps(2)} />
-            <Tab label="Deposit" {...a11yProps(3)} />
+          <Tabs value={value} onChange={handleChange} aria-label='basic tabs example'>
+            <Tab label='Income' {...a11yProps(0)} />
+            <Tab label='Credit' {...a11yProps(1)} />
+            <Tab label='Costs' {...a11yProps(2)} />
+            <Tab label='Deposit' {...a11yProps(3)} />
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>

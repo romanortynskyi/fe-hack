@@ -42,8 +42,8 @@ const VerifyRecoveryCodeForm: FC = () => {
       dispatch(authActions.setRecoveryCode(recoveryCode))
       navigate(Routes.ResetPassword)
     }
-    
-    catch (err) {console.log(err)
+
+    catch (err) { console.log(err)
       dispatch(authActions.setError((err as AppError).data.message))
     }
   }
@@ -61,14 +61,14 @@ const VerifyRecoveryCodeForm: FC = () => {
 
   const onKeyDown: KeyboardEventHandler<HTMLDivElement> = (event) => {
     const isLetter = /^[a-zA-Zа-яА-Я]{1}$/.test(event.key)
-    
+
     if (isLetter && !event.ctrlKey) {
       event.preventDefault()
     }
   }
 
   return (
-    <Box sx={{ width: '300px', margin: '0 auto'}}>
+    <Box sx={{ width: '300px', margin: '0 auto' }}>
       <Typography variant='h6' sx={{ textAlign: 'center' }}>
         Підтвердження коду відновлення пароля
       </Typography>
@@ -103,6 +103,5 @@ const VerifyRecoveryCodeForm: FC = () => {
     </Box>
   )
 }
-
 
 export default VerifyRecoveryCodeForm

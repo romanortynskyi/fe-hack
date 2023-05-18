@@ -9,7 +9,6 @@ const ResetPassword = () => {
   const navigate = useNavigate()
   const { user, email, recoveryCode } = useSelector((state) => state.auth)
 
-
   useEffect(() => {
     if (user || !email || !recoveryCode) {
       navigate(Routes.Main, { replace: true })

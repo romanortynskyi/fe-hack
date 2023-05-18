@@ -3,7 +3,7 @@ import { useFormik } from 'formik'
 import Typography from '@mui/material/Typography'
 import TextField from '@mui/material/TextField'
 import LoadingButton from '@mui/lab/LoadingButton'
-import Box from '@mui/material/Box'
+import { Box } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 
 import { useDispatch, useSelector } from '~/redux/store'
@@ -35,7 +35,7 @@ const ForgotPasswordForm = () => {
   const onSubmit = async (values: ForgotPasswordValues) => {
     try {
       const { email } = values
-      
+
       await sendResetPasswordEmail({
         email,
         language: 'en',

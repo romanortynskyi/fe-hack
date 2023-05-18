@@ -1,4 +1,4 @@
-import { createTheme } from '@mui/material/styles'
+import { createTheme } from '@mui/material'
 
 import palette from './app.pallete'
 import typography from './app.typography'
@@ -14,6 +14,7 @@ import menuList from './app.menu-list'
 const theme = createTheme({
   palette,
   typography,
+  direction: 'rtl',
   components: {
     MuiSvgIcon: svgIcon,
     MuiButton: button,
@@ -26,4 +27,4 @@ const theme = createTheme({
   },
 })
 
-export default theme
+export default theme;
