@@ -32,14 +32,7 @@ export const authApi = createApi({
     sendResetPasswordEmail: builder.mutation({
       query: (body) => ({
         url: 'forgot-password',
-        method: 'POST',
-        body,
-      }),
-    }),
-    verifyRecoveryCode: builder.mutation({
-      query: (body) => ({
-        url: 'verify-recovery-code',
-        method: 'POST',
+        method: 'PATCH',
         body,
       }),
     }),
@@ -50,6 +43,12 @@ export const authApi = createApi({
         body,
       }),
     }),
+
+    verifyRecoveryCode: builder.query({
+      query: ({ email, recoveryCode }) => ({
+        url: `verify-recovery-code?recoveryCode=${recoveryCode}&email=${email}`,
+      }),
+    }),
   }),
 })
 
@@ -57,6 +56,7 @@ export const {
   useSignUpMutation,
   useLoginMutation,
   useSendResetPasswordEmailMutation,
-  useVerifyRecoveryCodeMutation,
   useResetPasswordMutation,
+
+  useVerifyRecoveryCodeQuery,
 } = authApi

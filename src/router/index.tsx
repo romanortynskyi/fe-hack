@@ -10,6 +10,8 @@ import Main from '~/pages/main'
 import App from '~/containers/app'
 import Login from '~/pages/login'
 import ForgotPassword from '~/pages/forgot-password'
+import VerifyRecoveryCode from '~/pages/verify-recovery-code'
+import ResetPassword from '~/pages/reset-password'
 
 const config = (
   <Route
@@ -36,6 +38,16 @@ const config = (
       element={<ForgotPassword />}
       errorElement={<h1>404 - Not found.</h1>}
       path={Routes.ForgotPassword}
+    />
+    <Route
+      element={<VerifyRecoveryCode />}
+      errorElement={<h1>404 - Not found.</h1>}
+      path={Routes.VerifyRecoveryCode}
+    />
+    <Route
+      element={<ResetPassword />}
+      errorElement={<h1>404 - Not found.</h1>}
+      path={Routes.ResetPassword}
     />
   </Route>
 )

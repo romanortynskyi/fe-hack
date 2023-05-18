@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useFormik } from 'formik'
 import Typography from '@mui/material/Typography'
 import TextField from '@mui/material/TextField'
@@ -7,7 +8,6 @@ import { useNavigate } from 'react-router-dom'
 
 import { useDispatch, useSelector } from '~/redux/store'
 import Routes from '~/types/enums/routes'
-import Progress from '~/components/progress'
 import { authActions } from '~/redux/auth.slice'
 import AppError from '~/types/interfaces/app-error'
 import { useSendResetPasswordEmailMutation } from '~/redux/auth.api'
@@ -23,6 +23,10 @@ const ForgotPasswordForm = () => {
   const { error } = useSelector((state) => state.auth)
   const navigate = useNavigate()
 
+  useEffect(() => {
+    dispatch(authActions.setError(null))
+  }, [dispatch])
+
   const [
     sendResetPasswordEmail,
     { isLoading: isSendResetPasswordEmailLoading },
@@ -35,7 +39,7 @@ const ForgotPasswordForm = () => {
       await sendResetPasswordEmail({
         email,
         language: 'en',
-      })
+      }).unwrap()
 
       dispatch(authActions.setEmail(email))
       dispatch(authActions.setError(null))
