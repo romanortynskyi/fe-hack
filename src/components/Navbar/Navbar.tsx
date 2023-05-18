@@ -1,6 +1,7 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
 import { Box } from '@mui/material';
+import { useState } from 'react';
+import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
@@ -14,8 +15,8 @@ import Button from '@mui/material/Button';
 
 const settings = ['Profile', 'Logout'];
 
-function Navbar() {
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+const Navbar = () => {
+  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
@@ -26,11 +27,11 @@ function Navbar() {
   };
 
   return (
-    <AppBar position="static" style={{ background: '#1c1c1c' }}>
-      <Container maxWidth="xl">
+    <AppBar position='static' style={{ background: '#1c1c1c' }}>
+      <Container maxWidth='xl'>
         <Toolbar disableGutters>
           <Button
-            href="/"
+            href='/'
             style={{ textDecoration: 'none' }}
             disableRipple
             sx={{
@@ -44,10 +45,10 @@ function Navbar() {
           >
             <AdbIcon />
             <Typography
-              variant="h6"
+              variant='h6'
               noWrap
-              component="a"
-              href="/"
+              component='a'
+              href='/'
               sx={{
                 mr: 2,
                 display: { xs: 'none', md: 'flex' },
@@ -68,14 +69,14 @@ function Navbar() {
             marginLeft: 'auto',
           }}
           >
-            <Tooltip title="Open settings">
+            <Tooltip title='Open settings'>
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt='Remy Sharp' src='/static/images/avatar/2.jpg' />
               </IconButton>
             </Tooltip>
             <Menu
               sx={{ mt: '45px' }}
-              id="menu-appbar"
+              id='menu-appbar'
               anchorEl={anchorElUser}
               anchorOrigin={{
                 vertical: 'top',
@@ -105,7 +106,7 @@ function Navbar() {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                  <Typography textAlign='center'>{setting}</Typography>
                 </MenuItem>
               ))}
             </Menu>
