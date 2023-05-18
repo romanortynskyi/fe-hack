@@ -2,10 +2,8 @@ import * as React from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+import { Box } from '@mui/material';
 import Container from '@mui/material/Container';
-import Income from '../../pages/Income/Income';
-
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -46,7 +44,6 @@ function a11yProps(index: number) {
 }
 
 export default function BasicTabs() {
-
   const [value, setValue] = React.useState(0);
 
   const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
@@ -54,33 +51,33 @@ export default function BasicTabs() {
   };
 
   return (
-      <Container maxWidth="xl">
-        <Box sx={{}}>
-          <Box sx={{
-            borderBottom: 1,
-            borderColor: 'divider',
-          }}
-          >
-            <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-              <Tab label="Income" {...a11yProps(0)} />
-              <Tab label="Credit" {...a11yProps(1)} />
-              <Tab label="Costs" {...a11yProps(2)} />
-              <Tab label="Deposit" {...a11yProps(3)} />
-            </Tabs>
-          </Box>
-          <TabPanel value={value} index={0}>
-            <Income/>
-          </TabPanel>
-          <TabPanel value={value} index={1}>
-            Item Two.
-          </TabPanel>
-          <TabPanel value={value} index={2}>
-            Item Three.
-          </TabPanel>
-          <TabPanel value={value} index={3}>
-            Item Four.
-          </TabPanel>
+    <Container maxWidth="xl">
+      <Box sx={{}}>
+        <Box sx={{
+          borderBottom: 1,
+          borderColor: 'divider',
+        }}
+        >
+          <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+            <Tab label="Income" {...a11yProps(0)} />
+            <Tab label="Credit" {...a11yProps(1)} />
+            <Tab label="Costs" {...a11yProps(2)} />
+            <Tab label="Deposit" {...a11yProps(3)} />
+          </Tabs>
         </Box>
-      </Container>
+        <TabPanel value={value} index={0}>
+          Item One.
+        </TabPanel>
+        <TabPanel value={value} index={1}>
+          Item Two.
+        </TabPanel>
+        <TabPanel value={value} index={2}>
+          Item Three.
+        </TabPanel>
+        <TabPanel value={value} index={3}>
+          Item Four.
+        </TabPanel>
+      </Box>
+    </Container>
   );
 }
