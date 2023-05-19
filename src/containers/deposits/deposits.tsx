@@ -113,8 +113,9 @@ const Deposits = () => {
   const formik = useFormik({
     initialValues: {
       description: selectedDeposit?.description,
-      amount: selectedDeposit?.amount,
-      date: selectedDeposit?.date || new Date(),
+      totalAmountToPay: selectedDeposit?.totalAmountToPay,
+      startDate: selectedDeposit?.startDate || new Date(),
+      endDate: selectedDeposit?.endDate || new Date(),
     },
     onSubmit,
   });
@@ -122,8 +123,9 @@ const Deposits = () => {
   useEffect(() => {
     formik.setValues({
       description: selectedDeposit?.description,
-      amount: selectedDeposit?.amount,
-      date: selectedDeposit?.date || new Date(),
+      totalAmountToPay: selectedDeposit?.totalAmountToPay,
+      startDate: selectedDeposit?.startDate || new Date(),
+      endDate: selectedDeposit?.endDate || new Date(),
     });
   }, [selectedDeposit]);
 
@@ -169,22 +171,30 @@ const Deposits = () => {
           />
           <TextField
             type="number"
-            name="amount"
+            name="totalAmountToPay"
             label={'Amount'}
-            error={formik.touched.amount && !!formik.errors.amount}
+            error={formik.touched.totalAmountToPay && !!formik.errors.totalAmountToPay}
             helperText={
-              formik.touched.amount && formik.errors.amount?.toString()
+              formik.touched.totalAmountToPay && formik.errors.totalAmountToPay?.toString()
             }
             onChange={formik.handleChange}
-            value={formik.values.amount}
+            value={formik.values.totalAmountToPay}
             sx={{ marginBottom: 2, width: 1 }}
             onBlur={formik.handleBlur}
           />
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DatePicker
-              label={'Date'}
-              onChange={(value) => formik.setFieldValue('date', value)}
-              value={dayjs(formik.values.date)}
+              label={'Start Date'}
+              onChange={(value) => formik.setFieldValue('startDate', value)}
+              value={dayjs(formik.values.startDate)}
+              sx={{ marginBottom: 2, width: 1 }}
+            />
+          </LocalizationProvider>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <DatePicker
+              label={'End Date'}
+              onChange={(value) => formik.setFieldValue('endDate', value)}
+              value={dayjs(formik.values.endDate)}
               sx={{ marginBottom: 2, width: 1 }}
             />
           </LocalizationProvider>
