@@ -3,7 +3,8 @@ import BaseEntity from './base-entity';
 interface CreditEntity extends BaseEntity {
   description: string;
   totalAmountToPay: number;
-  date: Date;
+  startDate: Date;
+  endDate: Date
 }
 
 export default CreditEntity;

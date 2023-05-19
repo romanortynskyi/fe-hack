@@ -32,8 +32,15 @@ const CreditsTable: FC<CreditsTableProps> = (props) => {
       width: 90,
     },
     {
-      field: 'date',
-      headerName: 'Date',
+      field: 'startDate',
+      headerName: 'Start Date',
+      type: 'date',
+      width: 130,
+      valueGetter: (params) => new Date(params.value),
+    },
+    {
+      field: 'endDate',
+      headerName: 'End Date',
       type: 'date',
       width: 130,
       valueGetter: (params) => new Date(params.value),

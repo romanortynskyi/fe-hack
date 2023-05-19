@@ -4,6 +4,7 @@ import {
   createApi,
   fetchBaseQuery,
 } from '@reduxjs/toolkit/query/react';
+import LocalStorageKeys from '~/types/enums/local-storage-keys';
 
 import AppError from '~/types/interfaces/app-error';
 
@@ -13,6 +14,15 @@ export const creditApi = createApi({
   reducerPath: 'creditApi',
   baseQuery: fetchBaseQuery({
     baseUrl: `${API_URL}/credits/`,
+    prepareHeaders: (headers) => {
+      const token = localStorage.getItem(LocalStorageKeys.Token)
+      
+      if (token) {
+        headers.set('Authorization', `Bearer ${token}`)
+      }
+  
+      return headers
+    },
   }) as BaseQueryFn<string | FetchArgs, unknown, AppError, {}>,
   endpoints: (builder) => ({
     addCredit: builder.mutation({
@@ -39,9 +49,6 @@ export const creditApi = createApi({
     getCredits: builder.query({
       query: ({ token, page, perPage }) => ({
         url: `?page=${page}&perPage=${perPage}`,
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
       }),
     }),
   }),
