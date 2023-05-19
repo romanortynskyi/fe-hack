@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { useSelector } from '~/redux/store'
 import Routes from '~/types/enums/routes'
+import HeaderTabs from '~/containers/header-tabs'
 
 const Main: FC = () => {
   const navigate = useNavigate()
@@ -16,8 +17,7 @@ const Main: FC = () => {
 
   return (
     <div>
-      hello,
-      {user?.firstName}
+      <HeaderTabs />
     </div>
   )
 }

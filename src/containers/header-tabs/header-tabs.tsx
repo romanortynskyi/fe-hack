@@ -1,23 +1,25 @@
-import * as React from 'react';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
-import { Box } from '@mui/material';
-import Container from '@mui/material/Container';
+import { FC, SyntheticEvent, useState } from 'react'
+import Tabs from '@mui/material/Tabs'
+import Tab from '@mui/material/Tab'
+import Typography from '@mui/material/Typography'
+import { Box } from '@mui/material'
+import Container from '@mui/material/Container'
+import Incomes from '../incomes'
+
 
 interface TabPanelProps {
-  children?: React.ReactNode;
-  index: number;
-  value: number;
+  children?: React.ReactNode
+  index: number
+  value: number
 }
 
-function TabPanel(props: TabPanelProps) {
+const TabPanel: FC<TabPanelProps> = (props) => {
   const {
     children,
     value,
     index,
     ...other
-  } = props;
+  } = props
 
   return (
     <div
@@ -33,22 +35,22 @@ function TabPanel(props: TabPanelProps) {
       </Box>
       )}
     </div>
-  );
+  )
 }
 
 function a11yProps(index: number) {
   return {
     id: `simple-tab-${index}`,
     'aria-controls': `simple-tabpanel-${index}`,
-  };
+  }
 }
 
-export default function BasicTabs() {
-  const [value, setValue] = React.useState(0);
+const HeaderTabs = () => {
+  const [value, setValue] = useState(0)
 
-  const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
-  };
+  const handleChange = (_event: SyntheticEvent, newValue: number) => {
+    setValue(newValue)
+  }
 
   return (
     <Container maxWidth='xl'>
@@ -59,14 +61,14 @@ export default function BasicTabs() {
         }}
         >
           <Tabs value={value} onChange={handleChange} aria-label='basic tabs example'>
-            <Tab label='Income' {...a11yProps(0)} />
-            <Tab label='Credit' {...a11yProps(1)} />
-            <Tab label='Costs' {...a11yProps(2)} />
-            <Tab label='Deposit' {...a11yProps(3)} />
+            <Tab label='Incomes' {...a11yProps(0)} />
+            <Tab label='Expenses' {...a11yProps(1)} />
+            <Tab label='Credits' {...a11yProps(2)} />
+            <Tab label='Deposits' {...a11yProps(3)} />
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
-          Item One.
+          <Incomes />
         </TabPanel>
         <TabPanel value={value} index={1}>
           Item Two.
@@ -79,5 +81,7 @@ export default function BasicTabs() {
         </TabPanel>
       </Box>
     </Container>
-  );
+  )
 }
+
+export default HeaderTabs
