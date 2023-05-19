@@ -48,7 +48,7 @@ const Profile = () => {
     if (image) {
       formData.append('image', image, image.name)
     }
-    
+
     try {
       const updatedUser = await updateUser({
         id: user?.id || -1,
@@ -74,10 +74,10 @@ const Profile = () => {
       dispatch(authActions.setError((error as AppError).data.message))
     }
   }
-         
+
   const contentJSX = isFetchingGetMe ? <Progress /> : (
     <Box sx={{ height: '100%', marginTop: 6 }}>
-      <UserForm 
+      <UserForm
         firstName={user?.firstName || ''}
         lastName={user?.lastName || ''}
         image={user?.imgSrc || ''}

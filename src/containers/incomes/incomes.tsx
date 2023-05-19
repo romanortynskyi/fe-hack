@@ -13,7 +13,7 @@ const Incomes = () => {
     token: localStorage.getItem(LocalStorageKeys.Token) || '',
     page,
     perPage,
-  }) 
+  })
 
   return isIncomesLoading ? <Progress /> : (
     <IncomesTable incomes={incomes} />

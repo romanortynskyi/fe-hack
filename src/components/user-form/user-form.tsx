@@ -26,9 +26,9 @@ interface UserFormProps {
 }
 
 interface UserFormValues {
-	firstName: string
-	lastName: string
-	image?: string | null
+  firstName: string
+  lastName: string
+  image?: string | null
 }
 
 export const UserForm = (props: UserFormProps) => {
@@ -42,9 +42,9 @@ export const UserForm = (props: UserFormProps) => {
     onDeleteUser,
   } = props
 
-	const [shouldDeleteImage, setShouldDeleteImage] = useState(false)
-	const [isImageLoading, setIsImageLoading] = useState(false)
-	const [imageFile, setImageFile] = useState<File | null>(null)
+  const [shouldDeleteImage, setShouldDeleteImage] = useState(false)
+  const [isImageLoading, setIsImageLoading] = useState(false)
+  const [imageFile, setImageFile] = useState<File | null>(null)
 
   const afterUpdateUser = (values: UserFormValues) => {
     const { firstName, lastName, image } = values
@@ -58,22 +58,22 @@ export const UserForm = (props: UserFormProps) => {
     })
   }
 
-	const onSubmit = async (values: UserFormValues) => {
-		const {
-			firstName,
-			lastName,
-		} = values
+  const onSubmit = async (values: UserFormValues) => {
+    const {
+      firstName,
+      lastName,
+    } = values
 
-		onUpdateUser(
-			{
-				firstName,
-				lastName,
-			},
-			imageFile || null,
-			shouldDeleteImage,
+    onUpdateUser(
+      {
+        firstName,
+        lastName,
+      },
+      imageFile || null,
+      shouldDeleteImage,
       () => afterUpdateUser(values),
-		)
-	}
+    )
+  }
 
   const formik = useFormik({
     initialValues: {
@@ -84,46 +84,46 @@ export const UserForm = (props: UserFormProps) => {
     onSubmit,
   })
 
-	useEffect(() => {
-		setShouldDeleteImage(!!formik.touched.image && formik.values.image === null)
-	}, [formik.touched.image,formik.values.image])
+  useEffect(() => {
+    setShouldDeleteImage(!!formik.touched.image && formik.values.image === null)
+  }, [formik.touched.image, formik.values.image])
 
   const onChangeImage = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setIsImageLoading(true)
+    setIsImageLoading(true)
 
-		const file = e.target.files?.[0]
+    const file = e.target.files?.[0]
 
-		if (file) {
-			setImageFile(file)
+    if (file) {
+      setImageFile(file)
 
-			const reader = new FileReader()
-			reader.readAsDataURL(file)
+      const reader = new FileReader()
+      reader.readAsDataURL(file)
 
-			reader.onloadend = () => {
-				formik.setFieldValue('image', reader.result)
-				setIsImageLoading(false)
-			}
-		}
-		
-		formik.setFieldValue('image', e.target.files?.[0])
-		formik.setFieldTouched('image', true)
+      reader.onloadend = () => {
+        formik.setFieldValue('image', reader.result)
+        setIsImageLoading(false)
+      }
+    }
+
+    formik.setFieldValue('image', e.target.files?.[0])
+    formik.setFieldTouched('image', true)
   }
 
-	const onDeleteImage = () => {
-		formik.setFieldValue('image', null)
-		formik.setFieldTouched('image', true)
+  const onDeleteImage = () => {
+    formik.setFieldValue('image', null)
+    formik.setFieldTouched('image', true)
   }
 
-  const submitButtonContent = isLoadingUpdateUser ? 
-    (
-    	<Box component='span' sx={{ display: 'flex', alignItems: 'center', position: 'relative', height: '20px' }}>
+  const submitButtonContent = isLoadingUpdateUser
+    ? (
+      <Box component='span' sx={{ display: 'flex', alignItems: 'center', position: 'relative', height: '20px' }}>
         <Box component='span'>Зберегти</Box>
         <CircularProgress size='1rem' sx={{ position: 'absolute', left: 'calc(100% + 5px)' }} />
       </Box>
     ) : 'Зберегти'
 
-  const deleteButtonContent = isLoadingDeleteUser ? 
-    (
+  const deleteButtonContent = isLoadingDeleteUser
+    ? (
       <Box component='span' sx={{ display: 'flex', alignItems: 'center', position: 'relative', height: '20px' }}>
         <Box component='span'>Видалити акаунт</Box>
         <CircularProgress size='1rem' sx={{ position: 'absolute', left: 'calc(100% + 5px)' }} />
@@ -133,7 +133,7 @@ export const UserForm = (props: UserFormProps) => {
   return (
     <Box sx={{ width: '300px', margin: '0 auto' }}>
       <form onSubmit={formik.handleSubmit}>
-      	<ImageInput 
+        <ImageInput
           imgSrc={formik.values.image}
           isLoading={isImageLoading}
           onChange={onChangeImage}
@@ -141,7 +141,7 @@ export const UserForm = (props: UserFormProps) => {
         />
         <TextField
           name='firstName'
-          label={`Ім'я`}
+          label={'Ім\'я'}
           onChange={formik.handleChange}
           value={formik.values.firstName}
           sx={{ marginBottom: 2, width: 1 }}
@@ -151,7 +151,7 @@ export const UserForm = (props: UserFormProps) => {
           label='Прізвище'
           onChange={formik.handleChange}
           value={formik.values.lastName}
-        	sx={{ marginBottom: 2, width: 1 }}
+          sx={{ marginBottom: 2, width: 1 }}
         />
         <Button
           color='primary'
@@ -162,14 +162,14 @@ export const UserForm = (props: UserFormProps) => {
         >
           {submitButtonContent}
         </Button>
-      	<Button
+        <Button
           color='primary'
-        	variant='contained'
+          variant='contained'
           onClick={onDeleteUser}
           sx={{ marginBottom: 2, width: 1 }}
           disabled={isLoadingDeleteUser}
         >
-        	{deleteButtonContent}
+          {deleteButtonContent}
         </Button>
       </form>
     </Box>

@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography'
 import { Box } from '@mui/material'
 import Container from '@mui/material/Container'
 import Incomes from '../incomes'
-
+import Credits from '../credits';
 
 interface TabPanelProps {
   children?: React.ReactNode
@@ -74,7 +74,7 @@ const HeaderTabs = () => {
           Item Two.
         </TabPanel>
         <TabPanel value={value} index={2}>
-          Item Three.
+          <Credits />
         </TabPanel>
         <TabPanel value={value} index={3}>
           Item Four.

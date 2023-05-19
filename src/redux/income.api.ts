@@ -27,6 +27,6 @@ export const incomeApi = createApi({
 })
 
 export const {
-  
+
   useGetIncomesQuery,
 } = incomeApi

@@ -115,7 +115,7 @@ const Navbar: FC<NavbarProps> = (props) => {
                       },
                     },
                   }}
-                > 
+                >
                   <Link to={Routes.Profile} style={{ textDecoration: 'none' }}>
                     <MenuItem>
                       <Typography textAlign='center'>Profile</Typography>
