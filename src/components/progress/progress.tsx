@@ -1,5 +1,5 @@
-import CircularProgress from '@mui/material/CircularProgress'
+import CircularProgress from '@mui/material/CircularProgress';
 
-const Progress = () => <CircularProgress />
+const Progress = () => <CircularProgress />;
 
-export default Progress
+export default Progress;

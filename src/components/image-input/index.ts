@@ -1,1 +1,1 @@
-export { default } from './image-input'
+export { default } from './image-input';

@@ -92,4 +92,4 @@ export default {
     height: '100%',
     borderRadius: '100%',
   },
-}
+};

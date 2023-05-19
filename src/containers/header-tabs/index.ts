@@ -1,1 +1,1 @@
-export { default } from './header-tabs'
+export { default } from './header-tabs';

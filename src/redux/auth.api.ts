@@ -3,11 +3,11 @@ import {
   FetchArgs,
   createApi,
   fetchBaseQuery,
-} from '@reduxjs/toolkit/query/react'
+} from '@reduxjs/toolkit/query/react';
 
-import AppError from '~/types/interfaces/app-error'
+import AppError from '~/types/interfaces/app-error';
 
-const API_URL = import.meta.env.VITE_API_URL
+const API_URL = import.meta.env.VITE_API_URL;
 
 export const authApi = createApi({
   reducerPath: 'authApi',
@@ -50,7 +50,7 @@ export const authApi = createApi({
       }),
     }),
   }),
-})
+});
 
 export const {
   useSignUpMutation,
@@ -59,4 +59,4 @@ export const {
   useResetPasswordMutation,
 
   useVerifyRecoveryCodeQuery,
-} = authApi
+} = authApi;

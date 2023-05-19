@@ -8,4 +8,4 @@ enum Routes {
   Profile = '/profile',
 }
 
-export default Routes
+export default Routes;

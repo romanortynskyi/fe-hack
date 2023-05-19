@@ -1,9 +1,9 @@
 interface AppError {
   data: {
-    statusCode: number
-    message: string
-    error: string
-  }
+    statusCode: number;
+    message: string;
+    error: string;
+  };
 }
 
-export default AppError
+export default AppError;

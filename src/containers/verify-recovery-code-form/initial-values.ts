@@ -1,5 +1,5 @@
 const initialValues = {
   recoveryCode: '',
-}
+};
 
-export default initialValues
+export default initialValues;

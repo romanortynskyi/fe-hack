@@ -1,71 +1,53 @@
-import React from 'react'
+import React from 'react';
 import {
   Create as CreateIcon,
   Delete as DeleteIcon,
   Add as AddIcon,
-} from '@mui/icons-material'
-import {
-  Box,
-  IconButton,
-  CardMedia,
-} from '@mui/material'
+} from '@mui/icons-material';
+import { Box, IconButton, CardMedia } from '@mui/material';
 
-import Progress from '~/components/progress'
-import styles from './styles'
+import Progress from '~/components/progress';
+import styles from './styles';
 
 interface ImageInputProps {
-  imgSrc: string
-  isLoading: boolean
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-  onDelete: () => void
+  imgSrc: string;
+  isLoading: boolean;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onDelete: () => void;
 }
 
 const ImageInput = (props: ImageInputProps) => {
-  const {
-    imgSrc,
-    isLoading,
-    onChange,
-    onDelete,
-  } = props
+  const { imgSrc, isLoading, onChange, onDelete } = props;
 
   const deleteButtonJSX = imgSrc && (
-    <IconButton
-      sx={styles.avatarDelete}
-      onClick={onDelete}
-    >
+    <IconButton sx={styles.avatarDelete} onClick={onDelete}>
       <DeleteIcon />
     </IconButton>
-  )
+  );
 
-  const uploadIconJSX = imgSrc ? <CreateIcon /> : <AddIcon />
+  const uploadIconJSX = imgSrc ? <CreateIcon /> : <AddIcon />;
 
   const imageJSX = imgSrc ? (
-    <CardMedia
-      image={imgSrc}
-      sx={styles.image}
-    />
-  ) : null
+    <CardMedia image={imgSrc} sx={styles.image} />
+  ) : null;
 
-  const imagePreviewJSX = isLoading ? <Progress /> : imageJSX
+  const imagePreviewJSX = isLoading ? <Progress /> : imageJSX;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(e)
-  }
+    onChange(e);
+  };
 
   return (
     <Box sx={styles.avatarUpload}>
       {deleteButtonJSX}
 
       <Box sx={styles.avatarEdit}>
-        <IconButton
-          sx={styles.label}
-          component='label'
-        >
+        <IconButton sx={styles.label} component="label">
           <input
-            id='image-upload'
+            id="image-upload"
             style={styles.input}
-            type='file'
-            accept='.png, .jpg, .jpeg'
+            type="file"
+            accept=".png, .jpg, .jpeg"
             onChange={handleChange}
             hidden
           />
@@ -73,11 +55,9 @@ const ImageInput = (props: ImageInputProps) => {
         </IconButton>
       </Box>
 
-      <Box sx={styles.avatarPreview}>
-        {imagePreviewJSX}
-      </Box>
+      <Box sx={styles.avatarPreview}>{imagePreviewJSX}</Box>
     </Box>
-  )
-}
+  );
+};
 
-export default ImageInput
+export default ImageInput;

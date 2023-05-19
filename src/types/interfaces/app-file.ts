@@ -1,6 +1,6 @@
 interface AppFile {
-  base64?: string
-  file: File
+  base64?: string;
+  file: File;
 }
 
-export default AppFile
+export default AppFile;

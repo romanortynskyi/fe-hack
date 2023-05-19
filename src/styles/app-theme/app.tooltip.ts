@@ -1,6 +1,6 @@
 // @ts-nocheck
 
-import palette from './app.pallete'
+import palette from './app.pallete';
 
 const tooltip = {
   styleOverrides: {
@@ -13,6 +13,6 @@ const tooltip = {
       color: palette.primary[900],
     },
   },
-}
+};
 
-export default tooltip
+export default tooltip;

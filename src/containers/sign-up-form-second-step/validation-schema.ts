@@ -1,4 +1,4 @@
-import * as Yup from 'yup'
+import * as Yup from 'yup';
 
 const validationSchema = Yup.object().shape({
   password: Yup.string()
@@ -7,6 +7,6 @@ const validationSchema = Yup.object().shape({
   confirmPassword: Yup.string()
     .oneOf([Yup.ref('password')], 'Введені паролі відрізняються!')
     .required('Введіть пароль'),
-})
+});
 
-export default validationSchema
+export default validationSchema;

@@ -1,42 +1,42 @@
-import { FC, useState } from 'react'
-import { Box } from '@mui/material'
-import AppBar from '@mui/material/AppBar'
-import Toolbar from '@mui/material/Toolbar'
-import IconButton from '@mui/material/IconButton'
-import Typography from '@mui/material/Typography'
-import Menu from '@mui/material/Menu'
-import Container from '@mui/material/Container'
-import Avatar from '@mui/material/Avatar'
-import Tooltip from '@mui/material/Tooltip'
-import MenuItem from '@mui/material/MenuItem'
-import AdbIcon from '@mui/icons-material/Adb'
-import Button from '@mui/material/Button'
-import { Link } from 'react-router-dom'
+import { FC, useState } from 'react';
+import { Box } from '@mui/material';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import Menu from '@mui/material/Menu';
+import Container from '@mui/material/Container';
+import Avatar from '@mui/material/Avatar';
+import Tooltip from '@mui/material/Tooltip';
+import MenuItem from '@mui/material/MenuItem';
+import AdbIcon from '@mui/icons-material/Adb';
+import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
 
-import Routes from '~/types/enums/routes'
-import UserEntity from '~/types/interfaces/user-entity'
+import Routes from '~/types/enums/routes';
+import UserEntity from '~/types/interfaces/user-entity';
 
 interface NavbarProps {
-  user: UserEntity | null
-  onLogout: (callback: () => void) => void
+  user: UserEntity | null;
+  onLogout: (callback: () => void) => void;
 }
 
 const Navbar: FC<NavbarProps> = (props) => {
-  const { onLogout, user } = props
+  const { onLogout, user } = props;
 
-  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null)
+  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget)
-  }
+    setAnchorElUser(event.currentTarget);
+  };
 
   const handleCloseUserMenu = () => {
-    setAnchorElUser(null)
-  }
+    setAnchorElUser(null);
+  };
 
   return (
-    <AppBar position='static' style={{ background: '#1c1c1c' }}>
-      <Container maxWidth='xl'>
+    <AppBar position="static" style={{ background: '#1c1c1c' }}>
+      <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Button
             component={Link}
@@ -53,7 +53,7 @@ const Navbar: FC<NavbarProps> = (props) => {
           >
             <AdbIcon />
             <Typography
-              variant='h6'
+              variant="h6"
               noWrap
               sx={{
                 mr: 2,
@@ -70,14 +70,15 @@ const Navbar: FC<NavbarProps> = (props) => {
             </Typography>
           </Button>
 
-          <Box sx={{
-            flexGrow: 0,
-            marginLeft: 'auto',
-          }}
+          <Box
+            sx={{
+              flexGrow: 0,
+              marginLeft: 'auto',
+            }}
           >
             {user ? (
               <>
-                <Tooltip title='Open settings'>
+                <Tooltip title="Open settings">
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                     <Avatar
                       alt={`${user?.firstName} ${user?.lastName}`}
@@ -89,7 +90,7 @@ const Navbar: FC<NavbarProps> = (props) => {
                 </Tooltip>
                 <Menu
                   sx={{ mt: '45px' }}
-                  id='menu-appbar'
+                  id="menu-appbar"
                   anchorEl={anchorElUser}
                   anchorOrigin={{
                     vertical: 'top',
@@ -118,11 +119,11 @@ const Navbar: FC<NavbarProps> = (props) => {
                 >
                   <Link to={Routes.Profile} style={{ textDecoration: 'none' }}>
                     <MenuItem>
-                      <Typography textAlign='center'>Profile</Typography>
+                      <Typography textAlign="center">Profile</Typography>
                     </MenuItem>
                   </Link>
                   <MenuItem onClick={() => onLogout(handleCloseUserMenu)}>
-                    <Typography textAlign='center'>Logout</Typography>
+                    <Typography textAlign="center">Logout</Typography>
                   </MenuItem>
                 </Menu>
               </>
@@ -131,6 +132,6 @@ const Navbar: FC<NavbarProps> = (props) => {
         </Toolbar>
       </Container>
     </AppBar>
-  )
-}
-export default Navbar
+  );
+};
+export default Navbar;

@@ -1,8 +1,8 @@
 // @ts-nocheck
 
-import { checkboxClasses } from '@mui/material/Checkbox'
+import { checkboxClasses } from '@mui/material/Checkbox';
 
-import palette from './app.pallete'
+import palette from './app.pallete';
 
 const checkbox = {
   styleOverrides: {
@@ -13,6 +13,6 @@ const checkbox = {
       },
     },
   },
-}
+};
 
-export default checkbox
+export default checkbox;

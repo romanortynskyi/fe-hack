@@ -1,6 +1,6 @@
 const initialValues = {
   email: '',
   password: '',
-}
+};
 
-export default initialValues
+export default initialValues;

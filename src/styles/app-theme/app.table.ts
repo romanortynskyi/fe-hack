@@ -1,6 +1,6 @@
 // @ts-nocheck
 
-import palette from './app.pallete'
+import palette from './app.pallete';
 
 const table = {
   styleOverrides: {
@@ -13,6 +13,6 @@ const table = {
       },
     },
   },
-}
+};
 
-export default table
+export default table;

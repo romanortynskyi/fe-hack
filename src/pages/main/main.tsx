@@ -1,25 +1,25 @@
-import { FC, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { FC, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import { useSelector } from '~/redux/store'
-import Routes from '~/types/enums/routes'
-import HeaderTabs from '~/containers/header-tabs'
+import { useSelector } from '~/redux/store';
+import Routes from '~/types/enums/routes';
+import HeaderTabs from '~/containers/header-tabs';
 
 const Main: FC = () => {
-  const navigate = useNavigate()
-  const { user, isFetchingGetMe } = useSelector((state) => state.auth)
+  const navigate = useNavigate();
+  const { user, isFetchingGetMe } = useSelector((state) => state.auth);
 
   useEffect(() => {
     if (!user && !isFetchingGetMe) {
-      navigate(Routes.Login, { replace: true })
+      navigate(Routes.Login, { replace: true });
     }
-  }, [user, isFetchingGetMe, navigate])
+  }, [user, isFetchingGetMe, navigate]);
 
   return (
     <div>
       <HeaderTabs />
     </div>
-  )
-}
+  );
+};
 
-export default Main
+export default Main;
