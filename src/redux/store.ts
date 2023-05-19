@@ -8,12 +8,14 @@ import {
 import rootReducer from './root-reducer'
 import { authApi } from './auth.api'
 import { userApi } from './user.api'
+import { incomeApi } from './income.api'
 
 export const store = configureStore({
   reducer: rootReducer,
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat([
     authApi.middleware,
     userApi.middleware,
+    incomeApi.middleware,
   ]),
 })
 
