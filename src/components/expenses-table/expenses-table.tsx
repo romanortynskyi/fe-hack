@@ -1,3 +1,4 @@
+import Delete from '@mui/icons-material/Delete';
 import Edit from '@mui/icons-material/Edit';
 import IconButton from '@mui/material/IconButton';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
@@ -24,8 +25,8 @@ const columns: GridColDef[] = [
     valueGetter: (params) => new Date(params.value),
   },
   {
-    field: 'action',
-    headerName: 'Action',
+    field: 'action-edit',
+    headerName: 'Edit',
     sortable: false,
     renderCell: (params) => {
       const onClick: MouseEventHandler<HTMLButtonElement> = (e) => {
@@ -36,6 +37,23 @@ const columns: GridColDef[] = [
       return (
         <IconButton onClick={onClick}>
           <Edit />
+        </IconButton>
+      );
+    },
+  },
+  {
+    field: 'action-delete',
+    headerName: 'Remove',
+    sortable: false,
+    renderCell: (params) => {
+      const onClick: MouseEventHandler<HTMLButtonElement> = (e) => {
+        e.stopPropagation();
+        console.log(params);
+      };
+
+      return (
+        <IconButton onClick={onClick}>
+          <Delete />
         </IconButton>
       );
     },
