@@ -81,7 +81,6 @@ const Incomes = () => {
 
         const updatedIncomes = incomes.map((income) => income.id === selectedIncomeId ? updatedIncome : income)
         setIncomes(updatedIncomes)
-        setIsModalOpen(false)
         setSelectedIncomeId(null)
       }
 
