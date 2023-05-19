@@ -1,10 +1,10 @@
-import { useEffect, useMemo, useState } from 'react';
 import { Box, Button, Modal, TextField } from '@mui/material';
-import { useFormik } from 'formik';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import dayjs from 'dayjs';
+import { useFormik } from 'formik';
+import { useEffect, useMemo, useState } from 'react';
 
 import IncomesTable from '~/components/incomes-table';
 import Progress from '~/components/progress';
@@ -14,9 +14,9 @@ import {
   useGetIncomesQuery,
   useUpdateIncomeMutation,
 } from '~/redux/income.api';
+import { useSelector } from '~/redux/store';
 import LocalStorageKeys from '~/types/enums/local-storage-keys';
 import IncomeEntity from '~/types/interfaces/income-entity';
-import { useSelector } from '~/redux/store';
 
 const Incomes = () => {
   const [page, setPage] = useState(1);

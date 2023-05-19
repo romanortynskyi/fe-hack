@@ -5,12 +5,13 @@ import {
   useSelector as useAppSelector,
 } from 'react-redux';
 
-import rootReducer from './root-reducer';
 import { authApi } from './auth.api';
-import { userApi } from './user.api';
-import { incomeApi } from './income.api';
 import { creditApi } from './credit.api';
 import { depositApi } from './deposit.api';
+import { expenseApi } from './expense.api';
+import { incomeApi } from './income.api';
+import rootReducer from './root-reducer';
+import { userApi } from './user.api';
 
 export const store = configureStore({
   reducer: rootReducer,
@@ -21,6 +22,7 @@ export const store = configureStore({
       incomeApi.middleware,
       creditApi.middleware,
       depositApi.middleware,
+      expenseApi.middleware,
     ]),
 });
 
