@@ -1,9 +1,9 @@
-import { FC, MouseEventHandler } from 'react';
+import { Delete } from '@mui/icons-material';
 import Edit from '@mui/icons-material/Edit';
 import IconButton from '@mui/material/IconButton';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
+import { FC, MouseEventHandler } from 'react';
 import IncomeEntity from '~/types/interfaces/income-entity';
-import { Delete } from '@mui/icons-material';
 
 interface IncomesTableProps {
   incomes: IncomeEntity[];

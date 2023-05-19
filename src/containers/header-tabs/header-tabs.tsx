@@ -1,12 +1,13 @@
-import { FC, SyntheticEvent, useState } from 'react';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
 import { Box } from '@mui/material';
 import Container from '@mui/material/Container';
-import Incomes from '../incomes';
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
+import Typography from '@mui/material/Typography';
+import { FC, SyntheticEvent, useState } from 'react';
 import Credits from '../credits';
 import Deposits from '../deposits';
+import Expenses from '../expenses/expenses';
+import Incomes from '../incomes';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -72,7 +73,7 @@ const HeaderTabs = () => {
           <Incomes />
         </TabPanel>
         <TabPanel value={value} index={1}>
-          Item Two.
+          <Expenses />
         </TabPanel>
         <TabPanel value={value} index={2}>
           <Credits />
