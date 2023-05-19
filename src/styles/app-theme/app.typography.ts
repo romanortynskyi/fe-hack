@@ -1,6 +1,6 @@
 // @ts-nocheck
 
-import { TypographyOptions } from '@mui/material/styles/createTypography'
+import { TypographyOptions } from '@mui/material/styles/createTypography';
 
 const appTypography = {
   fontFamily: ['Rubik', '-apple-system', 'Arial', 'sans-serif'].join(','),
@@ -88,6 +88,6 @@ const appTypography = {
     letterSpacing: '0.5px',
     textTransform: 'initial',
   },
-} as TypographyOptions
+} as TypographyOptions;
 
-export default appTypography
+export default appTypography;

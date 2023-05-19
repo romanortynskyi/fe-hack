@@ -1,1 +1,1 @@
-export { default } from './verify-recovery-code'
+export { default } from './verify-recovery-code';

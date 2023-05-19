@@ -1,1 +1,1 @@
-export { default } from './incomes-table'
+export { default } from './incomes-table';

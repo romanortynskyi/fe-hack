@@ -2,4 +2,4 @@ enum LocalStorageKeys {
   Token = 'token',
 }
 
-export default LocalStorageKeys
+export default LocalStorageKeys;

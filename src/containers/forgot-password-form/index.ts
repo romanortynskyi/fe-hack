@@ -1,1 +1,1 @@
-export { default } from './forgot-password-form'
+export { default } from './forgot-password-form';

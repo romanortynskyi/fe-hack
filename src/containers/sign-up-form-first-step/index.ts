@@ -1,1 +1,1 @@
-export { default } from './sign-up-form-first-step'
+export { default } from './sign-up-form-first-step';

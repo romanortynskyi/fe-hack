@@ -1,6 +1,6 @@
 // @ts-nocheck
 
-import { mainShadow } from '~/styles/app-theme/custom-shadows'
+import { mainShadow } from '~/styles/app-theme/custom-shadows';
 
 const menuList = {
   styleOverrides: {
@@ -13,6 +13,6 @@ const menuList = {
       },
     },
   },
-}
+};
 
-export default menuList
+export default menuList;

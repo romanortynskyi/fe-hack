@@ -13,7 +13,7 @@ export const scrollbar = {
       visibility: 'visible',
     },
   },
-}
+};
 
 export const textfieldScrollbar = {
   '& ::-webkit-scrollbar-track': {
@@ -30,4 +30,4 @@ export const textfieldScrollbar = {
       visibility: 'visible',
     },
   },
-}
+};

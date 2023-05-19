@@ -1,6 +1,6 @@
 // @ts-nocheck
 
-import palette from './app.pallete'
+import palette from './app.pallete';
 
 const button = {
   styleOverrides: {
@@ -38,6 +38,6 @@ const button = {
       backgroundColor: palette.primary[50],
     },
   },
-}
+};
 
-export default button
+export default button;

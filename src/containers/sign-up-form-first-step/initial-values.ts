@@ -3,6 +3,6 @@ const initialValues = {
   lastName: '',
   email: '',
   image: null,
-}
+};
 
-export default initialValues
+export default initialValues;

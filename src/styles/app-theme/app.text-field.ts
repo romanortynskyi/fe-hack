@@ -1,8 +1,8 @@
 // @ts-nocheck
 
-import { textfieldScrollbar } from '~/styles/app-theme/custom-scrollbar'
+import { textfieldScrollbar } from '~/styles/app-theme/custom-scrollbar';
 
-import palette from './app.pallete'
+import palette from './app.pallete';
 
 const textField = {
   styleOverrides: {
@@ -35,6 +35,6 @@ const textField = {
       },
     },
   },
-}
+};
 
-export default textField
+export default textField;

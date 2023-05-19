@@ -1,4 +1,4 @@
-import { FC, MouseEventHandler } from 'react'
+import { FC, MouseEventHandler } from 'react';
 import Edit from '@mui/icons-material/Edit';
 import IconButton from '@mui/material/IconButton';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
@@ -6,17 +6,13 @@ import IncomeEntity from '~/types/interfaces/income-entity';
 import { Delete } from '@mui/icons-material';
 
 interface IncomesTableProps {
-  incomes: IncomeEntity[]
-  onIncomeEdit: (id: number) => void
-  onIncomeDelete: (id: number) => void
+  incomes: IncomeEntity[];
+  onIncomeEdit: (id: number) => void;
+  onIncomeDelete: (id: number) => void;
 }
 
 const IncomesTable: FC<IncomesTableProps> = (props) => {
-  const {
-    incomes,
-    onIncomeEdit,
-    onIncomeDelete,
-  } = props
+  const { incomes, onIncomeEdit, onIncomeDelete } = props;
 
   const columns: GridColDef[] = [
     {
@@ -48,15 +44,15 @@ const IncomesTable: FC<IncomesTableProps> = (props) => {
       sortable: false,
       renderCell: (params) => {
         const onClick: MouseEventHandler<HTMLButtonElement> = (e) => {
-          e.stopPropagation()
-          onIncomeEdit(params.row.id)
-        }
-  
+          e.stopPropagation();
+          onIncomeEdit(params.row.id);
+        };
+
         return (
           <IconButton onClick={onClick}>
             <Edit />
           </IconButton>
-        )
+        );
       },
     },
     {
@@ -65,18 +61,18 @@ const IncomesTable: FC<IncomesTableProps> = (props) => {
       sortable: false,
       renderCell: (params) => {
         const onClick: MouseEventHandler<HTMLButtonElement> = (e) => {
-          e.stopPropagation()
-          onIncomeDelete(params.row.id)
-        }
-  
+          e.stopPropagation();
+          onIncomeDelete(params.row.id);
+        };
+
         return (
           <IconButton onClick={onClick}>
             <Delete />
           </IconButton>
-        )
+        );
       },
     },
-  ]
+  ];
 
   return (
     <div style={{ height: 400, width: '100%' }}>
@@ -94,6 +90,6 @@ const IncomesTable: FC<IncomesTableProps> = (props) => {
       />
     </div>
   );
-}
+};
 
-export default IncomesTable
+export default IncomesTable;

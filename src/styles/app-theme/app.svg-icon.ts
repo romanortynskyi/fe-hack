@@ -1,6 +1,6 @@
 // @ts-nocheck
 
-import palette from './app.pallete'
+import palette from './app.pallete';
 
 const svgIcon = {
   styleOverrides: {
@@ -14,6 +14,6 @@ const svgIcon = {
       color: palette.primary[100],
     },
   },
-}
+};
 
-export default svgIcon
+export default svgIcon;

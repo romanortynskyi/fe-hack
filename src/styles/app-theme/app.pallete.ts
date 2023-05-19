@@ -1,6 +1,6 @@
 // @ts-nocheck
 
-import { blue } from '@mui/material/colors'
+import { blue } from '@mui/material/colors';
 
 const palette = {
   primary: {
@@ -47,6 +47,6 @@ const palette = {
   text: {
     primary: blue[900],
   },
-}
+};
 
-export default palette
+export default palette;

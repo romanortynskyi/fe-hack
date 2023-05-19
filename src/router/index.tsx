@@ -2,17 +2,17 @@ import {
   Route,
   createBrowserRouter,
   createRoutesFromElements,
-} from 'react-router-dom'
+} from 'react-router-dom';
 
-import Routes from '~/types/enums/routes'
-import SignUp from '~/pages/sign-up'
-import Main from '~/pages/main'
-import App from '~/containers/app'
-import Login from '~/pages/login'
-import ForgotPassword from '~/pages/forgot-password'
-import VerifyRecoveryCode from '~/pages/verify-recovery-code'
-import ResetPassword from '~/pages/reset-password'
-import Profile from '~/pages/profile'
+import Routes from '~/types/enums/routes';
+import SignUp from '~/pages/sign-up';
+import Main from '~/pages/main';
+import App from '~/containers/app';
+import Login from '~/pages/login';
+import ForgotPassword from '~/pages/forgot-password';
+import VerifyRecoveryCode from '~/pages/verify-recovery-code';
+import ResetPassword from '~/pages/reset-password';
+import Profile from '~/pages/profile';
 
 const config = (
   <Route
@@ -56,6 +56,6 @@ const config = (
       path={Routes.Profile}
     />
   </Route>
-)
+);
 
-export default createBrowserRouter(createRoutesFromElements(config))
+export default createBrowserRouter(createRoutesFromElements(config));

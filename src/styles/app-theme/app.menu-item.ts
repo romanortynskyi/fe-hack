@@ -1,6 +1,6 @@
 // @ts-nocheck
 
-import palette from './app.pallete'
+import palette from './app.pallete';
 
 const menuItem = {
   styleOverrides: {
@@ -10,6 +10,6 @@ const menuItem = {
       },
     },
   },
-}
+};
 
-export default menuItem
+export default menuItem;
