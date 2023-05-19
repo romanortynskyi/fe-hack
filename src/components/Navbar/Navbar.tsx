@@ -132,6 +132,13 @@ const Navbar: FC<NavbarProps> = (props) => {
         </Toolbar>
       </Container>
     </AppBar>
+<<<<<<< HEAD
   );
 };
 export default Navbar;
+=======
+  )
+}
+
+export default Navbar
+>>>>>>> 908c74e9db05699a75a0045eb44ec76598d0233e
