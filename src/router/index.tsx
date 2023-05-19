@@ -2,17 +2,60 @@ import {
   Route,
   createBrowserRouter,
   createRoutesFromElements,
-} from 'react-router-dom'
+} from 'react-router-dom';
 
-import App from '../App'
-import routes from './routes.data'
+import Routes from '~/types/enums/routes';
+import SignUp from '~/pages/sign-up';
+import Main from '~/pages/main';
+import App from '~/containers/app';
+import Login from '~/pages/login';
+import ForgotPassword from '~/pages/forgot-password';
+import VerifyRecoveryCode from '~/pages/verify-recovery-code';
+import ResetPassword from '~/pages/reset-password';
+import Profile from '~/pages/profile';
 
 const config = (
   <Route
     element={<App />}
     errorElement={<h1>404 - Not found.</h1>}
-    path={routes.main}
-  />
-)
+    path={Routes.Main}
+  >
+    <Route
+      element={<Main />}
+      errorElement={<h1>404 - Not found.</h1>}
+      path={Routes.Main}
+    />
+    <Route
+      element={<SignUp />}
+      errorElement={<h1>404 - Not found.</h1>}
+      path={Routes.SignUp}
+    />
+    <Route
+      element={<Login />}
+      errorElement={<h1>404 - Not found.</h1>}
+      path={Routes.Login}
+    />
+    <Route
+      element={<ForgotPassword />}
+      errorElement={<h1>404 - Not found.</h1>}
+      path={Routes.ForgotPassword}
+    />
+    <Route
+      element={<VerifyRecoveryCode />}
+      errorElement={<h1>404 - Not found.</h1>}
+      path={Routes.VerifyRecoveryCode}
+    />
+    <Route
+      element={<ResetPassword />}
+      errorElement={<h1>404 - Not found.</h1>}
+      path={Routes.ResetPassword}
+    />
+    <Route
+      element={<Profile />}
+      errorElement={<h1>404 - Not found.</h1>}
+      path={Routes.Profile}
+    />
+  </Route>
+);
 
-export default createBrowserRouter(createRoutesFromElements(config))
+export default createBrowserRouter(createRoutesFromElements(config));
