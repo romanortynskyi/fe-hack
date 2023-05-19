@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import { FC, SyntheticEvent, useState } from 'react';
 import Credits from '../credits';
 import Deposits from '../deposits';
+import Expenses from '../expenses/expenses';
 import Incomes from '../incomes';
 
 interface TabPanelProps {
@@ -72,7 +73,7 @@ const HeaderTabs = () => {
           <Incomes />
         </TabPanel>
         <TabPanel value={value} index={1}>
-          Item Two.
+          <Expenses />
         </TabPanel>
         <TabPanel value={value} index={2}>
           <Credits />

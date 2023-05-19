@@ -46,20 +46,22 @@ interface ExpensesTableProps {
   expenses: ExpenseEntity[];
 }
 
-const ExpensesTable: FC<ExpensesTableProps> = (props) => (
-  // const { expenses } = props;
-  <div style={{ height: 400, width: '100%' }}>
-    <DataGrid
-      rows={[]}
-      columns={columns}
-      initialState={{
-        pagination: { paginationModel: { pageSize: 5 } },
-      }}
-      pageSizeOptions={[5, 10, 25]}
-      disableColumnMenu
-      disableColumnFilter
-      disableColumnSelector
-    />
-  </div>
-);
+const ExpensesTable: FC<ExpensesTableProps> = (props) => {
+  const { expenses } = props;
+  return (
+    <div style={{ height: 400, width: '100%' }}>
+      <DataGrid
+        rows={expenses}
+        columns={columns}
+        initialState={{
+          pagination: { paginationModel: { pageSize: 5 } },
+        }}
+        pageSizeOptions={[5, 10, 25]}
+        disableColumnMenu
+        disableColumnFilter
+        disableColumnSelector
+      />
+    </div>
+  );
+};
 export default ExpensesTable;
