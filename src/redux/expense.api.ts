@@ -7,7 +7,7 @@ import {
 
 import AppError from '~/types/interfaces/app-error';
 
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = process.env.VITE_API_URL;
 
 export const expenseApi = createApi({
   reducerPath: 'expenseApi',

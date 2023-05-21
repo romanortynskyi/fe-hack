@@ -19,7 +19,7 @@ const getMe = createAsyncThunk('auth/get-me', async () => {
   const token = localStorage.getItem('token');
 
   if (token) {
-    const url = `${import.meta.env.VITE_API_URL}/auth/me`;
+    const url = `${process.env.VITE_API_URL}/auth/me`;
     const response = await fetch(url, {
       headers: {
         Authorization: `Bearer ${token}`,

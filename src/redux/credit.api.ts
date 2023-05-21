@@ -8,20 +8,20 @@ import LocalStorageKeys from '~/types/enums/local-storage-keys';
 
 import AppError from '~/types/interfaces/app-error';
 
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = process.env.VITE_API_URL;
 
 export const creditApi = createApi({
   reducerPath: 'creditApi',
   baseQuery: fetchBaseQuery({
     baseUrl: `${API_URL}/credits/`,
     prepareHeaders: (headers) => {
-      const token = localStorage.getItem(LocalStorageKeys.Token)
-      
+      const token = localStorage.getItem(LocalStorageKeys.Token);
+
       if (token) {
-        headers.set('Authorization', `Bearer ${token}`)
+        headers.set('Authorization', `Bearer ${token}`);
       }
-  
-      return headers
+
+      return headers;
     },
   }) as BaseQueryFn<string | FetchArgs, unknown, AppError, {}>,
   endpoints: (builder) => ({
