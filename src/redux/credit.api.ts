@@ -15,13 +15,13 @@ export const creditApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: `${API_URL}/credits/`,
     prepareHeaders: (headers) => {
-      const token = localStorage.getItem(LocalStorageKeys.Token)
-      
+      const token = localStorage.getItem(LocalStorageKeys.Token);
+
       if (token) {
-        headers.set('Authorization', `Bearer ${token}`)
+        headers.set('Authorization', `Bearer ${token}`);
       }
-  
-      return headers
+
+      return headers;
     },
   }) as BaseQueryFn<string | FetchArgs, unknown, AppError, {}>,
   endpoints: (builder) => ({
