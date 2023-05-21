@@ -1,8 +1,8 @@
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { FC, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
+import Navbar from '~/components/Navbar/Navbar';
 
-import Navbar from '~/components/navbar';
 import Progress from '~/components/progress';
 import { authActions } from '~/redux/auth.slice';
 import { useDispatch, useSelector } from '~/redux/store';
